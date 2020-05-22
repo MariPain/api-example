@@ -8,3 +8,14 @@
     flex-direction: column;
     align-items: center;
 }
+
+#detail {
+    font-family: 'Balsamiq Sans';
+    color: #492c20;
+    background-color: cyan;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
