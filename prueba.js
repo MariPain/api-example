@@ -63,56 +63,26 @@ if (ciudadOk !== null) {
 
             let detalle = document.getElementById('detail'); // cambiar esto
             detalle.innerHTML = `<h1>${data.name}</h1>
-            <p>Temperatura: ${parseInt((data.main.temp)-273.15)}&#176;C</p>
-            <p>Humedad: ${data.main.humidity}&#37</p>
-            <p>Viento: ${parseInt((data.wind.speed)/0.62137)} Km/s</p>
+            <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
             <p>Ubicación: <ul>
-                            <li>Latitud: ${data.coord.lat}</li> 
-                            <li>Longitud: ${data.coord.lon} m/s</li></ul></p>
+            <li>Latitud: ${data.coord.lat}</li> 
+            <li>Longitud: ${data.coord.lon}</li></ul></p>
+            <p>País ${data.sys.country}</p>
+            <p>Salida del Sol ${data.sys.sunrise}</p> 
+            <p>Puesta de Sol ${data.sys.sunset}</p>
             <p>${data.weather[0].description}</p>
-            <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">`;
+            <p>Temperatura: ${parseInt((data.main.temp)-273.15)}&#176;C</p>
+            <p>Sensación térmica: ${parseInt((data.main.feels_like)-273.15)}&#176;C</p>
+            <p>Temperatura minima: ${parseInt((data.main.temp_min)-273.15)}&#176;C</p>
+            <p>Temperatura máxima: ${parseInt((data.main.temp_max)-273.15)}&#176;C</p>
+            <p>Presión atmosférica: ${parseInt((data.main.pressure)-273.15)}hPa</p>
+            <p>Humedad: ${data.main.humidity}&#37</p>
+            <p>Visibilidad ${data.visibility} m</p>
+            <p>Viento: ${parseInt((data.wind.speed)/0.62137)} m/s</p>
+            <p>Nubes ${data.clouds.all}</p>
+            `;
 
             console.log(data);
 
         })
-}
-
-
-
-// 3) Comunicarlos
-// MPA-- > localStorage
-// index.html:
-//     Al hacer click en un "enlace"...
-
-// function loadDetail(event) {
-//     event.preventDefault();
-
-//     let myId = event.target.id;
-
-//     En los enlaces tendré que guardar el id de cada elemento en el localStorage
-
-//     Cargar detail.html
-//     window.location = "detail.html";
-// }
-// detail.html:
-//     El id que le pasará a su fetch lo obtiene del localStorage
-
-//lo pruebo
-
-
-
-// function obtener_localStorage() {
-//     if (localStorage.getItem("valor  ")) {
-
-//     }
-//     let valorDevalor = localStorage.getItem("valor  ")
-// }
-
-
-// guardar_localstorage() // solo almacena strings, si tengo objetos, tengo que pasar por JSON.stringify
-
-// function guardar_localstorage() {
-//     let loquequierguardar = ["lo que quiera que sea"]
-// };
-// localStorage.setItem("valor ", valor);
-// localStorage.setItem("valor".JSON.stringify(valor));
+} //pintando un mapa
